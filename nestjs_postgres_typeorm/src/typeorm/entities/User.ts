@@ -1,4 +1,5 @@
 import {
+  BeforeInsert,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
@@ -11,6 +12,7 @@ import {
 } from 'typeorm';
 import { Profile } from './Profile';
 import { Post } from './Post';
+import * as bcryptjs from 'bcryptjs';
 
 @Entity()
 export class User {
@@ -38,4 +40,10 @@ export class User {
 
   @OneToMany(() => Post, (post) => post.user)
   posts: Post[];
+
+  @BeforeInsert()
+  async hashPassword() {
+    const salt = bcryptjs.genSaltSync(10);
+    this.password = bcryptjs.hashSync(this.password, salt);
+  }
 }

@@ -7,7 +7,10 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  // Req,
+  // Res,
 } from '@nestjs/common';
+// import { Request, Response } from 'express';
 import { CreatePostDto } from 'src/users/dto/userPost.dto';
 import { CreateUserProfileDto } from 'src/users/dto/userProfile.dto';
 import { CreateUserDto } from 'src/users/dto/users.dto';
@@ -21,6 +24,11 @@ export class UsersController {
   getUsers() {
     return this.userService.findUser();
   }
+
+  // @Get()
+  // loginUser(@Req() req: Request, @Res() res: Response) {
+  //   // const { username, password } = req?.body;
+  // }
 
   @Post()
   createUsers(@Body() createUserDto: CreateUserDto) {

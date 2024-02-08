@@ -7,6 +7,8 @@ import { CreatePostDto } from 'src/users/dto/userPost.dto';
 import { CreateUserProfileDto } from 'src/users/dto/userProfile.dto';
 import { CreateUserDto } from 'src/users/dto/users.dto';
 import { Repository } from 'typeorm';
+import * as bcryptjs from 'bcryptjs';
+// import jwt from 'jsonwebtoken';
 
 @Injectable()
 export class UsersService {
@@ -18,6 +20,13 @@ export class UsersService {
 
   findUser() {
     return this.userRespository.find({ relations: ['profile', 'posts'] });
+  }
+
+  async getUser(username: string, password: string) {
+    const user = await this.userRespository.findOneBy({ username, password });
+    const isMatch = await bcryptjs.compare(password, user.password);
+    if (!isMatch) throw new HttpException('Password not match', 401);
+    return user;
   }
 
   async createUser(userDetails: CreateUserDto) {
