@@ -18,7 +18,7 @@ import { JwtModule } from './middleware/jwt.module';
       port: 5432,
       username: 'postgres',
       password: '12345678',
-      database: 'NestJs_postgres',
+      database: 'nestJs_postgres',
       entities: [User, Profile, Post],
       synchronize: true,
     }),
