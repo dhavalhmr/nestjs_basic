@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/typeorm/entities/User';
 import { Profile } from 'src/typeorm/entities/Profile';
 import { Post } from 'src/typeorm/entities/Post';
-import { ExampleMiddleware } from 'src/middleware/users/example/example.middleware';
+import { JwtMiddleware } from 'src/middleware/jwt.middleware';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Profile, Post])],
@@ -14,6 +14,6 @@ import { ExampleMiddleware } from 'src/middleware/users/example/example.middlewa
 })
 export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ExampleMiddleware).forRoutes('users');
+    consumer.apply(JwtMiddleware).forRoutes('users');
   }
 }

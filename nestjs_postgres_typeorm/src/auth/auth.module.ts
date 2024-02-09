@@ -7,10 +7,9 @@ import { Profile } from 'src/typeorm/entities/Profile';
 import { Post } from 'src/typeorm/entities/Post';
 import { UsersModule } from 'src/users/users.module';
 import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './local.strategy';
+import { LocalStrategy } from './strategy/local.strategy';
 import { AuthController } from './auth.controller';
-import { JwtModule, JwtService } from '@nestjs/jwt';
-import { jwtConstants } from './constants';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -22,16 +21,17 @@ import { jwtConstants } from './constants';
       PassportModule,
     ]),
     JwtModule.register({
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      secret: 'HFBWWHFufgwfg$^%@&$^%1344',
+      signOptions: { expiresIn: '1h' },
     }),
   ],
   providers: [
     { provide: 'AUTH_SERVICE', useClass: AuthService },
     { provide: 'USER_SERVICE', useClass: UsersService },
     LocalStrategy,
-    JwtService,
+    UsersService,
   ],
   controllers: [AuthController],
+  exports: [JwtModule],
 })
 export class AuthModule {}

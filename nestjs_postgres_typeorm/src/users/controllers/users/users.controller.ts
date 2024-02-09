@@ -25,16 +25,6 @@ export class UsersController {
     return this.userService.findUser();
   }
 
-  // @Get()
-  // loginUser(@Req() req: Request, @Res() res: Response) {
-  //   // const { username, password } = req?.body;
-  // }
-
-  @Post()
-  createUsers(@Body() createUserDto: CreateUserDto) {
-    return this.userService.createUser(createUserDto);
-  }
-
   @Put(':id')
   async updateUserById(
     @Param('id', ParseIntPipe) id: number,
