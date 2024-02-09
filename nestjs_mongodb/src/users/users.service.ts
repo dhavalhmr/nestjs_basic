@@ -6,11 +6,12 @@ import { CreateUserDto } from './dto/CreateUser.dto';
 import { UpdateUserDto } from './dto/UpdateUser.dto';
 import { UserSetting } from 'src/schemas/UserSetting.schemas';
 
+// UserService class is provider and provider must have @Injectable decorator because @Injectable means UsersService is provider
 @Injectable()
 export class UsersService {
   constructor(
     @InjectModel(User.name) private userModel: Model<User>,
-    @InjectModel(UserSetting.name) private userSettingModel: Model<UserSetting>,
+    @InjectModel(UserSetting.name) private userSettingModel: Model<UserSetting>
   ) {}
 
   async createUser({ settings, ...createUserDto }: CreateUserDto) {
@@ -20,7 +21,7 @@ export class UsersService {
 
       const newUser = new this.userModel({
         ...createUserDto,
-        settings: savedSettigns._id,
+        settings: savedSettigns._id
       });
       return newUser.save();
     }

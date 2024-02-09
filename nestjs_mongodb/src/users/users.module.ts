@@ -1,11 +1,11 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, userSchema } from 'src/schemas/User.schemas';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import {
   UserSetting,
-  userSettingSchema,
+  userSettingSchema
 } from 'src/schemas/UserSetting.schemas';
 
 @Module({
@@ -13,15 +13,19 @@ import {
     MongooseModule.forFeature([
       {
         name: User.name,
-        schema: userSchema,
+        schema: userSchema
       },
       {
         name: UserSetting.name,
-        schema: userSettingSchema,
-      },
-    ]),
+        schema: userSettingSchema
+      }
+    ])
   ],
   providers: [UsersService],
-  controllers: [UsersController],
+  controllers: [UsersController]
 })
-export class UsersModule {}
+export class UsersModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply().forRoutes('users'); // we can use middleware here in parameters of apply function
+  }
+}
