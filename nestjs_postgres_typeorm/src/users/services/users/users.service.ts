@@ -22,6 +22,11 @@ export class UsersService {
     return this.userRespository.find({ relations: ['profile', 'posts'] });
   }
 
+  async findUserByUsername(username: string) {
+    const user = await this.userRespository.findOne({ where: { username } });
+    return user;
+  }
+
   async getUser(username: string, password: string) {
     const user = await this.userRespository.findOneBy({ username, password });
     const isMatch = await bcryptjs.compare(password, user.password);
