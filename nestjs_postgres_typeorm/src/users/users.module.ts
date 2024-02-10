@@ -6,9 +6,16 @@ import { User } from 'src/typeorm/entities/User';
 import { Profile } from 'src/typeorm/entities/Profile';
 import { Post } from 'src/typeorm/entities/Post';
 import { JwtMiddleware } from 'src/middleware/jwt.middleware';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Profile, Post])],
+  imports: [
+    TypeOrmModule.forFeature([User, Profile, Post]),
+    JwtModule.register({
+      secret: 'HFBWWHFufgwfg$^%@&$^%1344',
+      signOptions: { expiresIn: '1h' },
+    }),
+  ],
   controllers: [UsersController],
   providers: [UsersService],
 })

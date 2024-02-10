@@ -1,0 +1,39 @@
+NestJs is built around the strong design pattern commonly known as Dependency injection. Dependency injection is inspired by Angular things providers, middleware, components, and services will be found in Angular
+
+
+NestJs uses built in expressjs under the hood but we can also use fastify
+
+
+--------------------NestJS--------------------
+Pipes can be used for request validation 
+Custom pipe validation can be made also
+
+
+
+
+nestJs---incoming request cycle:
+1.incoming request
+2.middleware
+3.guard
+4.interceptor
+5.pipe
+6.controller
+7.interceptor
+8.response
+
+
+--------------------NestJS--------------------
+
+
+
+
+
+we can see how much request per seconds completed by express and fastify in below website:
+https://medium.com/deno-the-complete-reference/nestjs-express-vs-fastify-comparison-for-hello-world-19875479e41d#:~:text=NestJS%20with%20Fastify%20brings%20significant,That's%20a%20big%20difference.
+
+
+like we are making services in NestJS
+same we can do the things in fastify but here will be plugins(third party plugins or custom plugin made by us)
+
+
+if the project so going big like it is going to continuously added a feature then we can go prefer fastify or nestJs 
