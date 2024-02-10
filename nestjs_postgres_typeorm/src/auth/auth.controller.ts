@@ -25,7 +25,7 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  async login(@Request() req) {
+  login(@Request() req) {
     const body: AuthPayloadDto = req?.body;
     if (!body) throw new UnauthorizedException();
 
