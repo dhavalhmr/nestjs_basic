@@ -9,14 +9,14 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthenticatedGuard } from 'src/auth/authenticated.guard';
 import { CreatePostDto } from 'src/users/dto/userPost.dto';
 import { CreateUserProfileDto } from 'src/users/dto/userProfile.dto';
 import { CreateUserDto } from 'src/users/dto/users.dto';
 import { UsersService } from 'src/users/services/users/users.service';
 
+@UseGuards(AuthenticatedGuard)
 @Controller('users')
-@UseGuards(AuthGuard)
 export class UsersController {
   constructor(private userService: UsersService) {}
 

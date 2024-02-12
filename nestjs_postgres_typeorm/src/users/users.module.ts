@@ -7,9 +7,11 @@ import { Profile } from 'src/typeorm/entities/Profile';
 import { Post } from 'src/typeorm/entities/Post';
 import { JwtMiddleware } from 'src/middleware/jwt.middleware';
 import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
+    PassportModule.register({ session: true }),
     TypeOrmModule.forFeature([User, Profile, Post]),
     JwtModule.register({
       secret: 'HFBWWHFufgwfg$^%@&$^%1344',

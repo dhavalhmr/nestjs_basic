@@ -10,16 +10,12 @@ import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './strategy/local.strategy';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
+import { Serializer } from './serialize.passport';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([
-      User,
-      Profile,
-      Post,
-      UsersModule,
-      PassportModule,
-    ]),
+    TypeOrmModule.forFeature([User, Profile, Post, UsersModule]),
+    PassportModule.register({ session: true }),
     JwtModule.register({
       secret: 'HFBWWHFufgwfg$^%@&$^%1344',
       signOptions: { expiresIn: '1h' },
@@ -30,6 +26,7 @@ import { JwtModule } from '@nestjs/jwt';
     { provide: 'USER_SERVICE', useClass: UsersService },
     LocalStrategy,
     UsersService,
+    Serializer,
   ],
   controllers: [AuthController],
   exports: [JwtModule],

@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   HttpException,
   Inject,
   Post,
@@ -14,6 +15,7 @@ import { JwtService } from '@nestjs/jwt';
 import { AuthPayloadDto } from './auth.dto';
 import { CreateUserDto } from 'src/users/dto/users.dto';
 import { UsersService } from 'src/users/services/users/users.service';
+import { AuthenticatedGuard } from './authenticated.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -33,7 +35,7 @@ export class AuthController {
 
     if (user) {
       const token = this.jwtService.sign(user);
-      return { user, token };
+      return { user, token, message: 'logged In' };
     }
     throw new HttpException('Login failed', 401);
   }
@@ -41,5 +43,13 @@ export class AuthController {
   @Post()
   createUsers(@Body() createUserDto: CreateUserDto) {
     return this.userService.createUser(createUserDto);
+  }
+
+  @UseGuards(AuthenticatedGuard)
+  @Get()
+  getUsers(@Request() req) {
+    console.log('<=======================', req.user);
+
+    return this.userService.findUser();
   }
 }
