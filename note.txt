@@ -22,6 +22,44 @@ nestJs---incoming request cycle:
 8.response
 
 
+nestJs--application lifecycle events:
+There are three phases : 
+A. Initializing
+B. Running
+C. Terminating
+
+
+A.======Initializing======
+Stage 1 - Nest Core boostraping(Boostraping starts)
+
+Stage 2 - Initializing modules 
+after initializing modules we can call onModulesInit() methods
+
+Stage 3 - On Application bootstrap
+After all modules initialized, but before initializing for connection
+
+Once the application bootstrap is completed then nestJs application gets listen on particular port this stage is called Start listener
+
+B.======Running======
+Application Running Phase where it is fine
+
+C.======Terminating======
+Stage.1 - onModuleDestroy
+It destroy each modules and child controller & providers
+
+Stage.2 - beforeApplicationShutdown
+In this stage all modules has been destroy and things we can do the things after destroying modules
+
+Stage.3 - Stop listeners 
+No more new http request will be accepted
+
+Stage.4 - onApplicationShutdown
+In this stage all existing listener has been shutted down
+
+Stage.5 - Process exit
+In this process nodejs process gets exited
+
+
 --------------------NestJS--------------------
 
 
