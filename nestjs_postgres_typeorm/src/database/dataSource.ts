@@ -1,7 +1,7 @@
-import { DataSourceOptions } from 'typeorm';
+import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
 
-export const dataSources: DataSourceOptions & SeederOptions = {
+export const dataSourcesOptions: DataSourceOptions & SeederOptions = {
   type: 'postgres',
   host: '127.0.0.1',
   port: 5432,
@@ -10,6 +10,12 @@ export const dataSources: DataSourceOptions & SeederOptions = {
   database: 'nestjs_postgres',
   // entities: [User, Profile, Post],
   entities: [__dirname + '/entities/**.{js,ts}'],
-  synchronize: true,
+  synchronize: false,
   // logging: ['error', 'query', 'log', 'warn', 'migration', 'schema'],
+  migrations: [__dirname + '/migrations/**.{js,ts}'],
 };
+
+const dataSource = new DataSource(dataSourcesOptions);
+dataSource.initialize();
+
+export default dataSource;
