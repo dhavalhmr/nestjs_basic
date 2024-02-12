@@ -4,7 +4,7 @@ import 'dotenv/config';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from './middleware/jwt.module';
-import { dataSourcesOptions } from './database/dataSource';
+import { dataSourcesOptions } from './database/data-source';
 
 @Module({
   imports: [

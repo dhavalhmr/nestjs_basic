@@ -12,7 +12,7 @@ import {
 } from 'typeorm';
 import { Profile } from './Profile';
 import { Post } from './Post';
-import { bcryptHashPassword } from 'src/utils/bcryptjsHelper';
+import { bcryptHashPassword } from '../../utils/bcryptjsHelper';
 
 @Entity()
 export class User {
