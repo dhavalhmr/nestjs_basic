@@ -8,6 +8,7 @@ import {
   Request,
   UnauthorizedException,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { LocalAuthGuard } from './passport/strategy/local-auth.guard';
 import { AuthService } from './auth.service';
@@ -16,6 +17,7 @@ import { AuthPayloadDto } from './auth.dto';
 import { CreateUserDto } from 'src/users/dto/users.dto';
 import { UsersService } from 'src/users/services/users/users.service';
 import { AuthenticatedGuard } from './authenticated.guard';
+import { LoggingInterceptor } from 'src/interceptor/logging.interceptor';
 
 @Controller('auth')
 export class AuthController {
@@ -26,6 +28,7 @@ export class AuthController {
   ) {}
 
   @UseGuards(LocalAuthGuard)
+  @UseInterceptors(LoggingInterceptor)
   @Post('login')
   login(@Request() req) {
     const body: AuthPayloadDto = req?.body;

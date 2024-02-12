@@ -11,6 +11,8 @@ import { LocalStrategy } from './passport/strategy/local.strategy';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { Serializer } from './passport/serialize.passport';
+import { LoggingInterceptor } from 'src/interceptor/logging.interceptor';
+import { RequestService } from 'src/request.service';
 
 @Module({
   imports: [
@@ -27,6 +29,8 @@ import { Serializer } from './passport/serialize.passport';
     LocalStrategy,
     UsersService,
     Serializer,
+    LoggingInterceptor,
+    RequestService,
   ],
   controllers: [AuthController],
   exports: [JwtModule],

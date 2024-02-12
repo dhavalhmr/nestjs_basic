@@ -11,5 +11,5 @@ export const dataSources: DataSourceOptions & SeederOptions = {
   // entities: [User, Profile, Post],
   entities: [__dirname + '/entities/**.{js,ts}'],
   synchronize: true,
-  logging: ['error', 'query', 'log', 'warn', 'migration', 'schema'],
+  // logging: ['error', 'query', 'log', 'warn', 'migration', 'schema'],
 };
