@@ -9,7 +9,7 @@ import {
   UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
-import { LocalAuthGuard } from './strategy/local-auth.guard';
+import { LocalAuthGuard } from './passport/strategy/local-auth.guard';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { AuthPayloadDto } from './auth.dto';

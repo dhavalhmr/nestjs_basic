@@ -7,10 +7,10 @@ import { Profile } from 'src/database/entities/Profile';
 import { Post } from 'src/database/entities/Post';
 import { UsersModule } from 'src/users/users.module';
 import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './strategy/local.strategy';
+import { LocalStrategy } from './passport/strategy/local.strategy';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
-import { Serializer } from './serialize.passport';
+import { Serializer } from './passport/serialize.passport';
 
 @Module({
   imports: [

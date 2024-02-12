@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import 'dotenv/config';
 import { UsersModule } from './users/users.module';
@@ -19,7 +17,7 @@ import { dataSources } from './database/dataSource';
     AuthModule,
     JwtModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

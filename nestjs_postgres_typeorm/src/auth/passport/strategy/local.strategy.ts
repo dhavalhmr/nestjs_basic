@@ -1,7 +1,7 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt } from 'passport-jwt';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 import { Strategy } from 'passport-local';
 import { comparePassword } from 'src/utils/bcryptjsHelper';
 
