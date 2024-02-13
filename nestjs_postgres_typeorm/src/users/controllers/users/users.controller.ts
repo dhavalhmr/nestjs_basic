@@ -9,11 +9,11 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { AuthenticatedGuard } from 'src/auth/authenticated.guard';
-import { CreatePostDto } from 'src/users/dto/userPost.dto';
-import { CreateUserProfileDto } from 'src/users/dto/userProfile.dto';
-import { CreateUserDto } from 'src/users/dto/users.dto';
-import { UsersService } from 'src/users/services/users/users.service';
+import { AuthenticatedGuard } from '../../../auth/authenticated.guard';
+import { CreatePostDto } from '../../dto/userPost.dto';
+import { CreateUserProfileDto } from '../../dto/userProfile.dto';
+import { CreateUserDto } from '../../dto/users.dto';
+import { UsersService } from '../../services/users/users.service';
 
 @UseGuards(AuthenticatedGuard)
 @Controller('users')

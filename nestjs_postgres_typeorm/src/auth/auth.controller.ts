@@ -14,10 +14,10 @@ import { LocalAuthGuard } from './passport/strategy/local-auth.guard';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { AuthPayloadDto } from './auth.dto';
-import { CreateUserDto } from 'src/users/dto/users.dto';
-import { UsersService } from 'src/users/services/users/users.service';
+import { CreateUserDto } from '../users/dto/users.dto';
+import { UsersService } from '../users/services/users/users.service';
 import { AuthenticatedGuard } from './authenticated.guard';
-import { LoggingInterceptor } from 'src/interceptor/logging.interceptor';
+import { LoggingInterceptor } from '../interceptor/logging.interceptor';
 
 @Controller('auth')
 export class AuthController {

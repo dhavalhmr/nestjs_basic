@@ -1,18 +1,18 @@
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { User } from 'src/database/entities/User';
+import { User } from '../database/entities/User';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersService } from 'src/users/services/users/users.service';
-import { Profile } from 'src/database/entities/Profile';
-import { Post } from 'src/database/entities/Post';
-import { UsersModule } from 'src/users/users.module';
+import { UsersService } from '../users/services/users/users.service';
+import { Profile } from '../database/entities/Profile';
+import { Post } from '../database/entities/Post';
+import { UsersModule } from '../users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './passport/strategy/local.strategy';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { Serializer } from './passport/serialize.passport';
-import { LoggingInterceptor } from 'src/interceptor/logging.interceptor';
-import { RequestService } from 'src/request.service';
+import { LoggingInterceptor } from '../interceptor/logging.interceptor';
+import { RequestService } from '../request.service';
 
 @Module({
   imports: [

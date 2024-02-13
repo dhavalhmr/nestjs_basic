@@ -1,13 +1,13 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Post } from 'src/database/entities/Post';
-import { Profile } from 'src/database/entities/Profile';
-import { User } from 'src/database/entities/User';
-import { CreatePostDto } from 'src/users/dto/userPost.dto';
-import { CreateUserProfileDto } from 'src/users/dto/userProfile.dto';
-import { CreateUserDto } from 'src/users/dto/users.dto';
+import { Post } from '../../../database/entities/Post';
+import { Profile } from '../../../database/entities/Profile';
+import { User } from '../../../database/entities/User';
+import { CreatePostDto } from '../../dto/userPost.dto';
+import { CreateUserProfileDto } from '../../dto/userProfile.dto';
+import { CreateUserDto } from '../../dto/users.dto';
 import { Repository } from 'typeorm';
-import { comparePassword } from 'src/utils/bcryptjsHelper';
+import { comparePassword } from '../../../utils/bcryptjsHelper';
 // import jwt from 'jsonwebtoken';
 
 @Injectable()

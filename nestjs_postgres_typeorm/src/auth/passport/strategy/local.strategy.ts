@@ -3,7 +3,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt } from 'passport-jwt';
 import { AuthService } from '../../auth.service';
 import { Strategy } from 'passport-local';
-import { comparePassword } from 'src/utils/bcryptjsHelper';
+import { comparePassword } from '../../../utils/bcryptjsHelper';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {

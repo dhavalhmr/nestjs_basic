@@ -1,3 +1,4 @@
+// /home/dhaval/Workspace/nestjs_basic/nestjs_postgres_typeorm/src/database/migrations/1707804964171-migration.ts
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class Migration1707804964171 implements MigrationInterface {

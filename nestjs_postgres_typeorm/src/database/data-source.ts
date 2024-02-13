@@ -1,3 +1,4 @@
+// /home/dhaval/Workspace/nestjs_basic/nestjs_postgres_typeorm/src/database/data-source.ts
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions } from 'typeorm-extension';
 import { User } from './entities/User';
