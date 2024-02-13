@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from './middleware/jwt.module';
 import { dataSourcesOptions } from './database/data-source';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { dataSourcesOptions } from './database/data-source';
     UsersModule,
     AuthModule,
     JwtModule,
+    DatabaseModule,
   ],
   controllers: [],
   providers: [],
